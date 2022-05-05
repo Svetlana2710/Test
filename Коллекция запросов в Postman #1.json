@@ -1,0 +1,622 @@
+{
+	"info": {
+		"_postman_id": "474896ef-62a4-4f9d-91e9-9b794a459edd",
+		"name": "AgentApp Тест.задание",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get_token",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\"username\" :\"qa@qa.qa\",\r\n\"password\":\"111\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://partner.agentapp.ru/v1/users/obtain-token",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"users",
+						"obtain-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_driver",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"first_name\": \"Степан\",\r\n  \"last_name\": \"Крайнов\",\r\n  \"patronymic\": \"Иванович\",\r\n  \"birth_date\": \"1985-10-20\",\r\n  \"driving_experience_started\": \"2010-10-20\",\r\n  \"driver_licenses\": [\r\n    {\r\n      \"credential_type\": \"DRIVER_LICENSE\",\r\n      \"number\": \"012345\",\r\n      \"series\": \"1234\",\r\n      \"issue_date\": \"2010-10-10\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://partner.agentapp.ru/v1/insured_objects/drivers",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"insured_objects",
+						"drivers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_owners",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"last_name\": \"Перчиков\",\r\n  \"first_name\": \"Василий\",\r\n  \"patronymic\": \"Владимирович\",\r\n  \"birth_date\": \"1987-01-13\",\r\n  \"credential\": [\r\n    {\r\n      \"credential_type\": \"RUSSIAN_INTERNAL_PASSPORT\",\r\n      \"issue_date\": \"2017-03-08\",\r\n      \"issue_point\": \"УФМС\",\r\n      \"issue_point_code\": \"123-456\",\r\n      \"number\": \"123456\",\r\n      \"series\": \"1234\"\r\n    }\r\n  ],\r\n  \"address\": [\r\n    {\r\n      \"address_query\": \"г Санкт-Петербург, г Ломоносов, ул Швейцарская, д 1 к 1, кв 1\",\r\n      \"address_type\": \"LEGAL_ADDRESS\",\r\n      \"region_kladr_id\": \"7800000000000\",\r\n      \"city_kladr_id\": \"7800000600000\"\r\n    },\r\n    {\r\n      \"address_query\": \"г Санкт-Петербург, г Ломоносов, ул Швейцарская, д 1 к 1, кв 1\",\r\n      \"address_type\": \"ACTUAL_ADDRESS\",\r\n      \"region_kladr_id\": \"7800000000000\",\r\n      \"city_kladr_id\": \"7800000600000\"\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://partner.agentapp.ru/v1/insured_objects/owners/natural_persons",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"insured_objects",
+						"owners",
+						"natural_persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_insurants",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"address\": [\r\n    {\r\n        \"address_query\": \"г Санкт-Петербург, г Ломоносов, ул Швейцарская, д 1 к 1, кв 1\",\r\n        \"address_type\": \"LEGAL_ADDRESS\"\r\n    },\r\n    {\r\n        \"address_query\": \"г Санкт-Петербург, г Ломоносов, ул Швейцарская, д 1 к 1, кв 1\",\r\n        \"address_type\": \"ACTUAL_ADDRESS\"\r\n    }\r\n],\r\n\"credential\": [\r\n    {\r\n        \"credential_type\": \"RUSSIAN_INTERNAL_PASSPORT\",\r\n        \"issue_date\": \"2010-10-10\",\r\n        \"issue_point\": \"УФМС\",\r\n        \"issue_point_code\": \"123-456\",\r\n        \"number\": \"123456\",\r\n        \"series\": \"1234\"\r\n    }\r\n],\r\n\"contact\": [\r\n    {\r\n        \"contact_type\": \"PHONE\",\r\n        \"number\": \"+79102354647\"\r\n    },\r\n    {\r\n        \"contact_type\": \"EMAIL\",\r\n        \"email\": \"sv@sv90.ru\"\r\n    }\r\n],\r\n\"last_name\": \"Ласточкин\",\r\n\"first_name\": \"Игорь\",\r\n\"patronymic\": \"Петрович\",\r\n\"birth_date\": \"1965-07-21\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://partner.agentapp.ru/v1/insured_objects/insurants/natural_persons",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"insured_objects",
+						"insurants",
+						"natural_persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_car",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"car_model_id\": \"864026180\",\r\n  \"engine_power\": \"211\",\r\n  \"chassis_number\": \"null\",\r\n  \"car_body_number\": \"null\",\r\n  \"vin_number\": \"WAUZZZ8T4BA037241\",\r\n  \"number_plate\": \"Р904МХ178\",\r\n  \"manufacturing_year\": \"2010\",\r\n  \"max_mass\": \"750\",\r\n  \"credential\": [\r\n    {\r\n      \"credential_type\": \"VEHICLE_REGISTRATION\",\r\n      \"issue_date\": \"2010-11-01\",\r\n      \"number\": \"267461\",\r\n      \"series\": \"78УН\"\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://partner.agentapp.ru/v3/insured_objects/cars",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v3",
+						"insured_objects",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_insured_objects",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"drivers\": [\r\n        \"f836dd26-4c27-4af9-bd74-02eca41252b0\"\r\n    ],\r\n    \"owner\": \"0e07588a-d29a-4253-a421-5ec212f736e2\",\r\n    \"car\": \"0f9fbc9a-5855-40b2-98c5-e43b2cfdef96\",\r\n    \"insurant\": \"ea2961a8-4974-4e68-820a-f9dbbf01deac\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://partner.agentapp.ru/v1/insured_objects/",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"insured_objects",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_contract",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valid_from\": \"2022-04-24\",\r\n    \"valid_to\": \"2023-04-23\",\r\n    \"engine_power\": 211,\r\n    \"is_car_without_registration\": false,\r\n    \"car_type\": \"B\",\r\n    \"target_of_using\": \"11\",\r\n    \"has_car_trailer\": false,\r\n    \"insurance_period\": \"8\",\r\n    \"owner_registration\": {\r\n        \"address_query\": \"г Санкт-Петербург, г Ломоносов, ул Швейцарская, д 1 к 1, кв 1\",\r\n        \"region_kladr_id\": \"7800000000000\"\r\n    },\r\n    \"drivers_ids\": [\r\n        \"f836dd26-4c27-4af9-bd74-02eca41252b0\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://partner.agentapp.ru/v3/agreements/calculations",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v3",
+						"agreements",
+						"calculations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_contract",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"insured_object\": \"07f07cfe-2bec-4d1e-9184-e289cedddf7d\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://partner.agentapp.ru/v1/agreements/3c88e2d0-1e07-4bda-a082-61e7ccb828a7",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"agreements",
+						"3c88e2d0-1e07-4bda-a082-61e7ccb828a7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_calculation_RENAISSANCE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://partner.agentapp.ru/v1/agreements/3c88e2d0-1e07-4bda-a082-61e7ccb828a7/results/RENAISSANCE",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"agreements",
+						"3c88e2d0-1e07-4bda-a082-61e7ccb828a7",
+						"results",
+						"RENAISSANCE"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_calculation_ZETTA",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://partner.agentapp.ru/v1/agreements/3c88e2d0-1e07-4bda-a082-61e7ccb828a7/results/ZETTA",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"agreements",
+						"3c88e2d0-1e07-4bda-a082-61e7ccb828a7",
+						"results",
+						"ZETTA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_calculation_ALPHA_STRAH",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://partner.agentapp.ru/v1/agreements/3c88e2d0-1e07-4bda-a082-61e7ccb828a7/results/ALPHA_STRAH",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"agreements",
+						"3c88e2d0-1e07-4bda-a082-61e7ccb828a7",
+						"results",
+						"ALPHA_STRAH"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_calculation_SDS",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://partner.agentapp.ru/v1/agreements/3c88e2d0-1e07-4bda-a082-61e7ccb828a7/results/SDS",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"agreements",
+						"3c88e2d0-1e07-4bda-a082-61e7ccb828a7",
+						"results",
+						"SDS"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_calculation_RGS",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://partner.agentapp.ru/v1/agreements/3c88e2d0-1e07-4bda-a082-61e7ccb828a7/results/RGS",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"agreements",
+						"3c88e2d0-1e07-4bda-a082-61e7ccb828a7",
+						"results",
+						"RGS"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_calculation_SNGI",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://partner.agentapp.ru/v1/agreements/3c88e2d0-1e07-4bda-a082-61e7ccb828a7/results/SNGI",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"agreements",
+						"3c88e2d0-1e07-4bda-a082-61e7ccb828a7",
+						"results",
+						"SNGI"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_calculation_UGORIA",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://partner.agentapp.ru/v1/agreements/3c88e2d0-1e07-4bda-a082-61e7ccb828a7/results/UGORIA",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"agreements",
+						"3c88e2d0-1e07-4bda-a082-61e7ccb828a7",
+						"results",
+						"UGORIA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_calculation_INGOSSTRAH",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://partner.agentapp.ru/v1/agreements/3c88e2d0-1e07-4bda-a082-61e7ccb828a7/results/INGOSSTRAH",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"agreements",
+						"3c88e2d0-1e07-4bda-a082-61e7ccb828a7",
+						"results",
+						"INGOSSTRAH"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_calculation_TINKOFF",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://partner.agentapp.ru/v1/agreements/3c88e2d0-1e07-4bda-a082-61e7ccb828a7/results/TINKOFF",
+					"protocol": "https",
+					"host": [
+						"partner",
+						"agentapp",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"agreements",
+						"3c88e2d0-1e07-4bda-a082-61e7ccb828a7",
+						"results",
+						"TINKOFF"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
